@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Diário do Humor</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div id="entrada-nome">
+    <div class="titulo">
+    <h1>DIÁRIO DO HUMOR</h1>
+    </div>
+  <hr>
+    <h2>Qual é o seu nome?</h2>
+    <input type="text" id="nomeUsuario" placeholder="Digite seu nome" />
+    <button onclick="salvarNome()">ENTRAR</button>
+  </div>
+
+  <div id="app" style="display: none;">
+    <h1>DIÁRIO DO HUMOR</h1>
+    <div class="bem-vindo" id="boasVindas"></div>
+    <button onclick="trocarUsuario()">TROCAR DE USUÁRIO</button>
+
+    <h3>Como você está se sentindo hoje?</h3>
+    <div class="emoji-options" id="emoji-options">
+      <img src="img/feliz.png" data-emoji=":D" alt="Feliz">
+      <img src="img/indiferente.png" data-emoji=":|" alt="Neutro">
+      <img src="img/triste.png" data-emoji=":C" alt="Triste">
+      <img src="img/irritado.png" data-emoji=":@" alt="Irritado">
+      <img src="img/sono.png" data-emoji="ZzZ" alt="Com sono">
+      <img src="img/apaixonado.png" data-emoji="<3" alt="Apaixonado">
+      <img src="img/enjoado.png" data-emoji=":S" alt="Enjoado">
+    </div>
+
+    <textarea id="motivo" placeholder="Conte o motivo..."></textarea><br>
+    <button onclick="salvarHumor()">SALVAR</button>
+
+    <h3>Histórico da Semana</h3>
+    <div id="historico"></div>
+
+    <h3>Resumo do Humor</h3>
+    <div id="resumo"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

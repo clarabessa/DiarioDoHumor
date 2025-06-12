@@ -8,13 +8,6 @@ body {
   max-width: 600px;
   margin: auto;
 }
-.titulo{
-  background-color: #f5f6fe;
-  border: #feb2b2;
-  border-width: 3px;
-  border-radius: 40px;
-  padding: 30px;
-}
 
 hr {
   display: block;
@@ -40,6 +33,19 @@ h2, h3 {
   text-align: center;
   color: #1E1E1E;
   margin-top: 60px;
+}
+
+.titulo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.emoji-logo {
+  width: 22%;
+  height: 22%;
+  margin: 0;
 }
 
 .bem-vindo {

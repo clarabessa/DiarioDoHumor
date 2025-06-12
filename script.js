@@ -17,12 +17,17 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function salvarNome() {
   const nome = document.getElementById("nomeUsuario").value.trim();
-  if (nome) {
+  if (nome.length <= 2) {
+    alert("Nome inválido: o nome deve ter mais de 2 letras.");
+    return;
+  }
     localStorage.setItem("nomeUsuario", nome);
     nomeUsuario = nome;
     iniciarApp();
-  }
 }
+
+
+
 
 function iniciarApp() {
   document.getElementById("entrada-nome").style.display = "none";
@@ -77,7 +82,7 @@ function mostrarHistorico() {
     }
   }
 
-  let resumoHTML = "<div class='frequency'><strong>Humor da semana:</strong><br>";
+  let resumoHTML = "<div class='frequency'>";
   for (const [emoji, count] of Object.entries(contagem)) {
     const emojiImg = getEmojiImage(emoji);
     resumoHTML += `<img src="${emojiImg}" alt="${emoji}" class="emoji-resumo"> x${count} `;

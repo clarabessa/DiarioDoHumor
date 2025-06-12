@@ -119,7 +119,7 @@ button {
   font-size: 14px;
   padding: 50px;
   margin-top: 20px;
-  border-radius: 20px;
+  border-radius: 60px;
   font-family: "Quicksand";
   font-weight: bold;
   color:#1E1E1E;
@@ -135,7 +135,7 @@ button {
   margin-top: 10px;
   padding: 50px;
   font-family: "Quicksand";
-  border-radius: 20px;
+  border-radius: 60px;
   background-color: #84b3d2;
 }
 

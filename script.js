@@ -1,5 +1,5 @@
 const dias = ["Dom", "Seg", "Ter", "Qua", "Qui", "Sex", "Sáb"];
-let humorSemana = JSON.parse(localStorage.getItem("humorSemana")) || {};
+let humorPorUsuario = JSON.parse(localStorage.getItem("humorPorUsuario")) || {};
 let nomeUsuario = localStorage.getItem("nomeUsuario") || "";
 let emojiSelecionado = "";
 
@@ -21,13 +21,10 @@ function salvarNome() {
     alert("Nome inválido: o nome deve ter mais de 2 letras.");
     return;
   }
-    localStorage.setItem("nomeUsuario", nome);
-    nomeUsuario = nome;
-    iniciarApp();
+  localStorage.setItem("nomeUsuario", nome);
+  nomeUsuario = nome;
+  iniciarApp();
 }
-
-
-
 
 function iniciarApp() {
   document.getElementById("entrada-nome").style.display = "none";
@@ -50,12 +47,16 @@ function salvarHumor() {
 
   const hoje = new Date().getDay();
 
-  if (!humorSemana[hoje]) {
-    humorSemana[hoje] = [];
+  if (!humorPorUsuario[nomeUsuario]) {
+    humorPorUsuario[nomeUsuario] = {};
   }
 
-  humorSemana[hoje].push({ emoji: emojiSelecionado, motivo });
-  localStorage.setItem("humorSemana", JSON.stringify(humorSemana));
+  if (!humorPorUsuario[nomeUsuario][hoje]) {
+    humorPorUsuario[nomeUsuario][hoje] = [];
+  }
+
+  humorPorUsuario[nomeUsuario][hoje].push({ emoji: emojiSelecionado, motivo });
+  localStorage.setItem("humorPorUsuario", JSON.stringify(humorPorUsuario));
 
   document.getElementById("motivo").value = "";
   emojiSelecionado = "";
@@ -70,6 +71,7 @@ function mostrarHistorico() {
   container.innerHTML = "";
   resumoContainer.innerHTML = "";
 
+  const humorSemana = humorPorUsuario[nomeUsuario] || {};
   let contagem = {};
 
   for (let i = 0; i < 7; i++) {
@@ -106,6 +108,5 @@ function getEmojiImage(emoji) {
 
 function trocarUsuario() {
   localStorage.removeItem("nomeUsuario");
-  localStorage.removeItem("humorSemana");
   location.reload();
 }

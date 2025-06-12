@@ -110,12 +110,15 @@ button {
 #historico {
   background-color: #84b3d2;
   font-size: 14px;
-  padding: 20px;
+  padding: 50px;
   margin-top: 20px;
-  border-radius: 15px;
+  border-radius: 20px;
   font-family: "Quicksand";
   font-weight: bold;
   color:#1E1E1E;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  white-space: normal;
 }
 
 .frequency {
@@ -123,9 +126,9 @@ button {
   font-size: 14px;
   color: #1E1E1E;
   margin-top: 10px;
-  padding: 20px;
+  padding: 50px;
   font-family: "Quicksand";
-  border-radius: 15px;
+  border-radius: 20px;
   background-color: #84b3d2;
 }
 

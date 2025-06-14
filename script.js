@@ -110,3 +110,18 @@ function trocarUsuario() {
   localStorage.removeItem("nomeUsuario");
   location.reload();
 }
+
+const emojiLogo = document.getElementById("emojiLogo");
+
+if (emojiLogo) {
+ 
+  emojiLogo.src = "img/piscada2.png";
+
+  setInterval(() => {
+    emojiLogo.src = "img/piscada.png";
+
+    setTimeout(() => {
+      emojiLogo.src = "img/piscada2.png";
+    }, 1200);
+  }, 2000);
+}

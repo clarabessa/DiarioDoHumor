@@ -1,0 +1,1 @@
+Protótipo do Projeto: https://www.figma.com/design/qb1z133FTYD73byBljByAS/Di%C3%A1rio-do-Humor?node-id=0-1&t=Vud9VpRKfn8WvXvj-1

@@ -76,9 +76,12 @@ function mostrarHistorico() {
 
   for (let i = 0; i < 7; i++) {
     if (humorSemana[i]) {
-      humorSemana[i].forEach(h => {
+      humorSemana[i].forEach((h, index) => {
         const emojiImg = getEmojiImage(h.emoji);
-        container.innerHTML += `<p>${dias[i]}: <img src="${emojiImg}" alt="${h.emoji}" style="width: 24px; vertical-align: middle;"> - "${h.motivo}"</p>`;
+        container.innerHTML += `<p>
+          ${dias[i]}: <img src="${emojiImg}" alt="${h.emoji}" style="width: 24px; vertical-align: middle;"> - "${h.motivo}"
+          <button class="btn-excluir" onclick="removerHumor(${i}, ${index})">EXCLUIR</button>
+        </p>`;
         contagem[h.emoji] = (contagem[h.emoji] || 0) + 1;
       });
     }
@@ -124,4 +127,17 @@ if (emojiLogo) {
       emojiLogo.src = "img/piscada2.png";
     }, 1200);
   }, 2000);
+}
+
+function removerHumor(dia, indice) {
+  if (confirm("Tem certeza que deseja excluir este humor?")) {
+    humorPorUsuario[nomeUsuario][dia].splice(indice, 1);
+
+    if (humorPorUsuario[nomeUsuario][dia].length === 0) {
+      delete humorPorUsuario[nomeUsuario][dia];
+    }
+
+    localStorage.setItem("humorPorUsuario", JSON.stringify(humorPorUsuario));
+    mostrarHistorico();
+  }
 }

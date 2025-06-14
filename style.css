@@ -91,16 +91,15 @@ h2, h3 {
   padding: 20px;
   border-radius: 60px;
   margin-bottom: 40px;
-
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 30px;
+  gap: 28px;
 }
 
 .emoji-options img {
-  width: 70px;
-  height: 70px;
+  width: 68px;
+  height: 68px;
   cursor: pointer;
   border-radius: 10px;
   transition: transform 0.2s ease;
@@ -178,7 +177,7 @@ button:hover {
 
 #historico {
   background-color: #84b3d2;
-  font-size: 14px;
+  font-size: 15px;
   padding: 50px;
   margin-top: 20px;
   border-radius: 60px;
@@ -192,7 +191,7 @@ button:hover {
 
 .frequency {
   font-weight: bold;
-  font-size: 14px;
+  font-size: 15px;
   color: #1E1E1E;
   margin-top: 10px;
   margin-bottom: 100px;
@@ -223,4 +222,23 @@ button:hover {
 .bottom-section-app a {
   color: #f5f6fe;
   font-weight: bold;
+}
+
+.btn-excluir {
+  font-family: "Jost";
+  background-color: transparent;
+  color: #f5f6fe;
+  border: 2px solid #f5f6fe;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 10px;
+  padding: 5px 8px;
+  margin-left: 1px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.btn-excluir:hover {
+  background-color: #ff6f7b;
+  color: #f5f6fe;
+  border-color: #ff6f7b;
 }

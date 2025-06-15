@@ -55,7 +55,18 @@ function salvarHumor() {
     humorPorUsuario[nomeUsuario][hoje] = [];
   }
 
-  humorPorUsuario[nomeUsuario][hoje].push({ emoji: emojiSelecionado, motivo });
+  const dataCompleta = new Date();
+  const dia = String(dataCompleta.getDate()).padStart(2, '0');
+  const mes = String(dataCompleta.getMonth() + 1).padStart(2, '0');
+  const ano = dataCompleta.getFullYear();
+  const dataFormatada = `${dia}/${mes}/${ano}`;
+
+  humorPorUsuario[nomeUsuario][hoje].push({
+    emoji: emojiSelecionado,
+    motivo,
+    data: dataFormatada
+  });
+
   localStorage.setItem("humorPorUsuario", JSON.stringify(humorPorUsuario));
 
   document.getElementById("motivo").value = "";
@@ -79,7 +90,7 @@ function mostrarHistorico() {
       humorSemana[i].forEach((h, index) => {
         const emojiImg = getEmojiImage(h.emoji);
         container.innerHTML += `<p>
-          ${dias[i]}: <img src="${emojiImg}" alt="${h.emoji}" style="width: 24px; vertical-align: middle;"> - "${h.motivo}"
+          ${dias[i]} (${h.data}): <img src="${emojiImg}" alt="${h.emoji}" style="width: 24px; vertical-align: middle;"> - "${h.motivo}"
           <button class="btn-excluir" onclick="removerHumor(${i}, ${index})">EXCLUIR</button>
         </p>`;
         contagem[h.emoji] = (contagem[h.emoji] || 0) + 1;
@@ -117,7 +128,7 @@ function trocarUsuario() {
 const emojiLogo = document.getElementById("emojiLogo");
 
 if (emojiLogo) {
- 
+
   emojiLogo.src = "img/piscada2.png";
 
   setInterval(() => {
